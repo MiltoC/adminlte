@@ -1,0 +1,163 @@
+#menu-lateral {
+    background-image: linear-gradient(200deg, rgba(213, 213, 213, 0.01) 0%, rgba(213, 213, 213, 0.01) 14.286%,rgba(140, 140, 140, 0.01) 14.286%, rgba(140, 140, 140, 0.01) 28.572%,rgba(52, 52, 52, 0.01) 28.572%, rgba(52, 52, 52, 0.01) 42.858%,rgba(38, 38, 38, 0.01) 42.858%, rgba(38, 38, 38, 0.01) 57.144%,rgba(159, 159, 159, 0.01) 57.144%, rgba(159, 159, 159, 0.01) 71.42999999999999%,rgba(71, 71, 71, 0.01) 71.43%, rgba(71, 71, 71, 0.01) 85.71600000000001%,rgba(88, 88, 88, 0.01) 85.716%, rgba(88, 88, 88, 0.01) 100.002%),linear-gradient(337deg, rgba(25, 25, 25, 0.01) 0%, rgba(25, 25, 25, 0.01) 12.5%,rgba(150, 150, 150, 0.01) 12.5%, rgba(150, 150, 150, 0.01) 25%,rgba(84, 84, 84, 0.01) 25%, rgba(84, 84, 84, 0.01) 37.5%,rgba(85, 85, 85, 0.01) 37.5%, rgba(85, 85, 85, 0.01) 50%,rgba(188, 188, 188, 0.01) 50%, rgba(188, 188, 188, 0.01) 62.5%,rgba(80, 80, 80, 0.01) 62.5%, rgba(80, 80, 80, 0.01) 75%,rgba(73, 73, 73, 0.01) 75%, rgba(73, 73, 73, 0.01) 87.5%,rgba(219, 219, 219, 0.01) 87.5%, rgba(219, 219, 219, 0.01) 100%),linear-gradient(203deg, rgba(233, 233, 233, 0.01) 0%, rgba(233, 233, 233, 0.01) 25%,rgba(114, 114, 114, 0.01) 25%, rgba(114, 114, 114, 0.01) 50%,rgba(164, 164, 164, 0.01) 50%, rgba(164, 164, 164, 0.01) 75%,rgba(228, 228, 228, 0.01) 75%, rgba(228, 228, 228, 0.01) 100%),linear-gradient(317deg, rgba(139, 139, 139, 0.02) 0%, rgba(139, 139, 139, 0.02) 16.667%,rgba(44, 44, 44, 0.02) 16.667%, rgba(44, 44, 44, 0.02) 33.334%,rgba(166, 166, 166, 0.02) 33.334%, rgba(166, 166, 166, 0.02) 50.001000000000005%,rgba(2, 2, 2, 0.02) 50.001%, rgba(2, 2, 2, 0.02) 66.668%,rgba(23, 23, 23, 0.02) 66.668%, rgba(23, 23, 23, 0.02) 83.33500000000001%,rgba(21, 21, 21, 0.02) 83.335%, rgba(21, 21, 21, 0.02) 100.002%),linear-gradient(328deg, rgba(3, 3, 3, 0.03) 0%, rgba(3, 3, 3, 0.03) 12.5%,rgba(116, 116, 116, 0.03) 12.5%, rgba(116, 116, 116, 0.03) 25%,rgba(214, 214, 214, 0.03) 25%, rgba(214, 214, 214, 0.03) 37.5%,rgba(217, 217, 217, 0.03) 37.5%, rgba(217, 217, 217, 0.03) 50%,rgba(68, 68, 68, 0.03) 50%, rgba(68, 68, 68, 0.03) 62.5%,rgba(118, 118, 118, 0.03) 62.5%, rgba(118, 118, 118, 0.03) 75%,rgba(200, 200, 200, 0.03) 75%, rgba(200, 200, 200, 0.03) 87.5%,rgba(198, 198, 198, 0.03) 87.5%, rgba(198, 198, 198, 0.03) 100%),linear-gradient(97deg, rgba(195, 195, 195, 0.03) 0%, rgba(195, 195, 195, 0.03) 16.667%,rgba(177, 177, 177, 0.03) 16.667%, rgba(177, 177, 177, 0.03) 33.334%,rgba(170, 170, 170, 0.03) 33.334%, rgba(170, 170, 170, 0.03) 50.001000000000005%,rgba(158, 158, 158, 0.03) 50.001%, rgba(158, 158, 158, 0.03) 66.668%,rgba(121, 121, 121, 0.03) 66.668%, rgba(121, 121, 121, 0.03) 83.33500000000001%,rgba(146, 146, 146, 0.03) 83.335%, rgba(146, 146, 146, 0.03) 100.002%),linear-gradient(268deg, rgba(103, 103, 103, 0.03) 0%, rgba(103, 103, 103, 0.03) 25%,rgba(112, 112, 112, 0.03) 25%, rgba(112, 112, 112, 0.03) 50%,rgba(4, 4, 4, 0.03) 50%, rgba(4, 4, 4, 0.03) 75%,rgba(227, 227, 227, 0.03) 75%, rgba(227, 227, 227, 0.03) 100%),linear-gradient(90deg, hsl(98,0%,0%),hsl(98,0%,0%));/* Degradado sutil */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4); 
+    padding: 20px;
+    color: #fff;
+}
+
+.menu-header {
+    background-color: rgba(33, 37, 41, 0.85);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.menu-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.menu-separator {
+    border: none;
+    height: 2px;
+    background-color: #adb5bd;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+.menu-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-btn {
+    background-color: #007bff;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    width: 100%;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2), 0 3px 8px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: left;
+}
+
+.menu-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); 
+}
+
+.menu-btn:active {
+    transform: translateY(0); 
+    background-color: #004494;
+}
+#contenedor-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+#contenido {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    max-width: 600px;
+}
+#contenido h3 {
+    margin-top: 0;
+}
+.cont2 {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    max-width: 500px;
+    margin-top: 100px;
+}
+
+.card {
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.85), rgba(33, 37, 41, 0.85)); 
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4); 
+    overflow: hidden;
+    border: none;
+    color: #fff;
+    backdrop-filter: blur(10px); 
+}
+
+.card-header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: none;
+}
+
+.card-header .card-title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #adb5bd;
+}
+
+.form-control,
+.form-select {
+    border-radius: 10px;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ced4da;
+    color: #fff;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #80bdff;
+    color: #fff;
+    box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5); 
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.form-control::placeholder,
+.form-select::placeholder {
+    color: #adb5bd;
+}
+
+.btn-dark {
+    background-color: #007bff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    color: #fff;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2), 0 3px 8px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-dark:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); 
+}
+
+.btn-dark:active {
+    transform: translateY(0); 
+    background-color: #004494;
+}
