@@ -16,7 +16,7 @@ $datos = $crud->fetchData();
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link href="/adminlte/css/styles.css" rel="stylesheet">
+  <link href="../css/styles.css" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/adminlte/vendor/almasaeed2010/adminlte/plugins/fontawesome-free/css/all.min.css">
