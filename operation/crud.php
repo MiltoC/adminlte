@@ -15,4 +15,62 @@ class Crud extends DatabaseConexion {
         }
     }
 
+    public function save($datos){
+        try{
+            $conexion = parent::Connect();
+            $coleccion = $conexion->clientes;
+            $respuesta = $coleccion->insertOne($datos);
+            return $respuesta;
+        }
+        catch(\Throwable $e){
+            return "Error: " . $e->getMessage();
+        }
+        catch(Exception $th){
+            return "Error: " . $th->getMessage();
+        }
+        
+    }
+
+    // Método para actualizar un documento por ID
+    public function update($id, $datos){
+        try{
+            $conexion = parent::Connect();
+            $coleccion = $conexion->clientes;
+            $respuesta = $coleccion->updateOne(
+                ['_id' => new MongoDB\BSON\ObjectId($id)],
+                ['$set' => $datos]
+            );
+            return $respuesta;
+        }
+        catch(\Throwable $e){
+            return "Error: " . $e->getMessage();
+        }
+    }
+
+    // Método para obtener un solo documento por ID
+    public function fetchDataById($id) {
+        try{
+            $conexion = parent::Connect();
+            $coleccion = $conexion->clientes;
+            $cliente = $coleccion->findOne(['_id' => new MongoDB\BSON\ObjectId($id)]);
+            return $cliente;
+        }
+        catch(\Throwable $e){
+            return "Error: " . $e->getMessage();
+        }
+    }
+
+    // Método para eliminar un documento por ID
+    public function delete($id) {
+        try{
+            $conexion = parent::Connect();
+            $coleccion = $conexion->clientes;
+            $respuesta = $coleccion->deleteOne(['_id' => new MongoDB\BSON\ObjectId($id)]);
+            return $respuesta;
+        }
+        catch(\Throwable $e){
+            return "Error: " . $e->getMessage();
+        }
+    }
+
 }

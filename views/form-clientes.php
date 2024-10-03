@@ -15,11 +15,8 @@ $datos = $crud->fetchData();
   <title>AdminLTE 3 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css">
+  
+  <link href="/adminlte/css/styles.css" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/adminlte/vendor/almasaeed2010/adminlte/plugins/fontawesome-free/css/all.min.css">
@@ -41,6 +38,11 @@ $datos = $crud->fetchData();
   <link rel="stylesheet" href="/adminlte/vendor/almasaeed2010/adminlte/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -67,7 +69,7 @@ $datos = $crud->fetchData();
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item mb-1">
-                <a href="/adminlte/views/form-clientes.php" class="nav-link">
+                <a href="/adminlte/views/form-clientes.php">
                   <button class="menu-btn" id="btn-clientes">
                     <i class="fa-solid fa-user"></i> Clientes
                   </button>
@@ -102,17 +104,17 @@ $datos = $crud->fetchData();
     <!-- /.content-header -->
 
     <!-- Main content -->
-    
+    <section class="content">
       
     <div class="container">
-        <div class="text-center text-white mt-3">
+        <div class="text-center mt-3">
             <h1>CRUD PHP</h1>
         </div>
     <div class="card mt-3">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
                 <h2>Lista empleados</h2>
-                <a href="vistas/crear.php" class="btn btn-primary">
+                <a href="../views/crear.php" class="btn btn-primary">
                     Agregar&nbsp&nbsp<i class="fas fa-plus"></i>
                 </a>
             </div>
@@ -121,9 +123,9 @@ $datos = $crud->fetchData();
                     <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Edad</th>
-                            <th>Cargo</th>
+                            <th>Email</th>
+                            <th>Telefono</th>
+                            <th>Direccion</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
                         </tr>
@@ -138,7 +140,7 @@ $datos = $crud->fetchData();
                                 <td><?php echo $dato->telefono?></td>
                                 <td><?php echo $dato->direccion?></td>
                                 <td class="text-center">
-                                    <form action="vistas/editar.php" method="get">
+                                    <form action="../views/editar.php" method="get">
                                         <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
                                         <button type="submit" class="btn btn-warning btn-sm">
                                             Editar&nbsp&nbsp<i class="fas fa-edit"></i>
@@ -146,7 +148,7 @@ $datos = $crud->fetchData();
                                     </form>
                                 </td>
                                 <td class="text-center">
-                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="controlador/eliminar.php" method="post">
+                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="../controller/eliminar.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
                                         <button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminacion('<?php echo $dato->_id; ?>')">
                                             Eliminar&nbsp&nbsp<i class="fas fa-trash"></i>
@@ -160,7 +162,7 @@ $datos = $crud->fetchData();
         </div>
     </div>
     </div>
-    
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -178,21 +180,7 @@ $datos = $crud->fetchData();
   </aside>
   <!-- /.control-sidebar -->
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            "paging": true,
-            "searching": true,
-            "ordering": true
-        });
-    });
 
-    
-    </script>
 <!-- ./wrapper -->
 <!-- jQuery -->
 <script src="/adminlte/vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
@@ -228,6 +216,39 @@ $datos = $crud->fetchData();
 <script src="/adminlte/vendor/almasaeed2010/adminlte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/adminlte/vendor/almasaeed2010/adminlte/dist/js/demo.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+            "paging": true,
+            "searching": true,
+            "ordering": true
+        });
+    });
+
+    function confirmarEliminacion(id) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "No podrás revertir esta acción",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Si el usuario confirma, enviar el formulario
+                document.getElementById('formEliminar_' + id).submit();
+            }
+        });
+    }
+    
+    </script>
 </body>
 </html>
 
