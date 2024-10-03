@@ -44,13 +44,13 @@ $datos = $crud->fetchData();
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.css">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed">
 <div class="wrapper">
 
 
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" id="menu-lateral">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="/adminlte/vendor/almasaeed2010/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -98,7 +98,7 @@ $datos = $crud->fetchData();
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper py-3" style="background-image: url(/adminlte/img/fnd.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <!-- Content Header (Page header) -->
     
     <!-- /.content-header -->
@@ -106,20 +106,19 @@ $datos = $crud->fetchData();
     <!-- Main content -->
     <section class="content">
       
-    <div class="container">
-        <div class="text-center mt-3">
-            <h1>CRUD PHP</h1>
+        <div class="text-center card-1">
+            <h1>Clientes</h1>
         </div>
     <div class="card mt-3">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
-                <h2>Lista empleados</h2>
-                <a href="../views/crear.php" class="btn btn-primary">
+                <h2>Lista clientes</h2>
+                <a href="../views/clientes-crear.php" class="btn btn-primary">
                     Agregar&nbsp&nbsp<i class="fas fa-plus"></i>
                 </a>
             </div>
             <div class="table-container">
-                <table id="dataTable" class="table table-sm table-hover table-bordered">
+                <table id="dataTable" class="table table-sm table-hover table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -140,7 +139,7 @@ $datos = $crud->fetchData();
                                 <td><?php echo $dato->telefono?></td>
                                 <td><?php echo $dato->direccion?></td>
                                 <td class="text-center">
-                                    <form action="../views/editar.php" method="get">
+                                    <form action="../views/clientes-editar.php" method="get">
                                         <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
                                         <button type="submit" class="btn btn-warning btn-sm">
                                             Editar&nbsp&nbsp<i class="fas fa-edit"></i>
@@ -148,7 +147,7 @@ $datos = $crud->fetchData();
                                     </form>
                                 </td>
                                 <td class="text-center">
-                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="../controller/eliminar.php" method="post">
+                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="../controller/clientes-eliminar.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
                                         <button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminacion('<?php echo $dato->_id; ?>')">
                                             Eliminar&nbsp&nbsp<i class="fas fa-trash"></i>
@@ -161,12 +160,11 @@ $datos = $crud->fetchData();
             </div>
         </div>
     </div>
-    </div>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <footer class="main-footer" style="background-color: black">
     <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
