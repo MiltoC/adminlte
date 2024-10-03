@@ -26,8 +26,8 @@ if (isset($_GET['id'])) {
                 <div id="contenido">
                     <div class="card-1">
                     <div class="card-header-1">
-                        <h5 class="card-title-1">Agregar Nuevo Cliente</h5>
-                        <p class="card-text-1">Ingresa los detalles del nuevo cliente.</p>
+                        <h5 class="card-title-1">Editar Cliente</h5>
+                        <p class="card-text-1">Actualice los datos del cliente.</p>
                     </div>
                     <div class="card-body-1">
                     <form id="edit-form" action="../controller/clientes-actualizar.php" method="POST">
