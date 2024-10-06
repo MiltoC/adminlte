@@ -44,9 +44,9 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4" id="menu-lateral">
     <!-- Brand Logo -->
     <a href="/adminlte/index.php" class="brand-link">
-      <img src="/adminlte/img/Logo_CoffeeTown.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="/adminlte/vendor/almasaeed2010/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class=" font-weight-light" style="text-decoration: none;">Cafetería</span>
+      <span class="brand-text font-weight-light">Cafetería</span>
     </a>
 
     <!-- Sidebar -->
@@ -60,25 +60,26 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item mb-1">
-            <h1>Inicie sesión</h1>
-            <form id="sesion-form" action="/adminlte/controller/usuarios-verificar.php" method="POST">
-                        <div class="mb-3">
-                            <label for="usuario" class="form-label">Usuario</label>
-                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su usuario" required pattern="[a-zA-Z0-9]+" title="Solo se permiten letras y números">
-                        </div>
-                        <div class="mb-3">
-                            <label for="contraseña" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="Ingrese su contraseña" required minlength="6" title="La contraseña debe tener al menos 6 caracteres">
-                        </div>
-                        <div class="d-flex justify-content-between mt-4">
-                            <a href="/adminlte/views/usuarios-inicio.php" class="btn btn-dark">
-                                Registrarse
-                            </a>
-                            <button type="submit" class="btn btn-dark">
-                                Acceder
-                            </button>
-                        </div>
-                    </form>
+                <a href="/adminlte/views/form-clientes.php">
+                  <button class="menu-btn" id="btn-clientes">
+                    <i class="fa-solid fa-user"></i> Clientes
+                  </button>
+                </a>
+          </li>
+          <li class="nav-item mb-1">
+            <button class="menu-btn" id="btn-empleados">
+              <i class="fa-solid fa-user-tie"></i> Empleados
+            </button>
+          </li>
+          <li class="nav-item mb-1">
+            <button class="menu-btn" id="btn-productos">
+              <i class="fa-solid fa-box"></i> Productos
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="menu-btn" id="btn-pedidos" >
+              <i class="fa-solid fa-cart-shopping"></i> Pedidos
+            </button>
           </li>
         </ul>
       </nav>
@@ -105,8 +106,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer" style="background-color: black">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
+    <strong><a href="/adminlte/index.php">Cerrar sesion</a>.</strong>
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.0.0
     </div>
@@ -118,22 +118,6 @@
   </aside>
   <!-- /.control-sidebar -->
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
-<script>
-        // Obtener los parámetros de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const error = urlParams.get('error');
-
-        // Mostrar la alerta correspondiente
-        if (error === 'usuario_no_registrado') {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'El usuario no está registrado.'
-            });
-        }
-    </script>
-
 <!-- ./wrapper -->
 <!-- jQuery -->
 <script src="/adminlte/vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
@@ -169,6 +153,6 @@
 <script src="/adminlte/vendor/almasaeed2010/adminlte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/adminlte/vendor/almasaeed2010/adminlte/dist/js/demo.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
 </body>
 </html>

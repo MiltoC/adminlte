@@ -3,6 +3,28 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/adminlte/vendor/autoload.php';
 
 class Crud extends DatabaseConexion {
+
+    public function verificarUsuario($usuario, $contraseña) {
+        try {
+            $conexion = parent::Connect();
+            $coleccion = $conexion->usuarios;
+
+            // Buscar usuario y contraseña en la colección
+            $usuarioEncontrado = $coleccion->findOne([
+                'usuario' => $usuario,
+                'contraseña' => $contraseña
+            ]);
+
+            // Retornar si el usuario fue encontrado o no
+            return $usuarioEncontrado ? true : false;
+        } catch (\Throwable $e) {
+            return "Error: " . $e->getMessage();
+        } catch (Exception $th) {
+            return "Error: " . $th->getMessage();
+        }
+    }
+
+
     public function fetchData(){
         try{
             $connection = $this->connect();
@@ -19,6 +41,22 @@ class Crud extends DatabaseConexion {
         try{
             $conexion = parent::Connect();
             $coleccion = $conexion->clientes;
+            $respuesta = $coleccion->insertOne($datos);
+            return $respuesta;
+        }
+        catch(\Throwable $e){
+            return "Error: " . $e->getMessage();
+        }
+        catch(Exception $th){
+            return "Error: " . $th->getMessage();
+        }
+        
+    }
+
+    public function saveUser($datos){
+        try{
+            $conexion = parent::Connect();
+            $coleccion = $conexion->usuarios;
             $respuesta = $coleccion->insertOne($datos);
             return $respuesta;
         }

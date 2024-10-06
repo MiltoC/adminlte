@@ -2,18 +2,17 @@
 include "../connection/conexion.php";
 include "../operation/crud.php";
 
-$nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
+$usuario = isset($_POST['usuario']) ? $_POST['usuario'] : null;
 $email = isset($_POST['email']) ? $_POST['email'] : null;
-$telefono = isset($_POST['telefono']) ? $_POST['telefono'] : null;
-$direccion = isset($_POST['direccion']) ? $_POST['direccion'] : null;
+$contraseña = isset($_POST['contraseña']) ? $_POST['contraseña'] : null;
 
 // Validar que todos los campos estén llenos
-if(empty($nombre) || empty($email) || empty($telefono) || empty($direccion)){
+if(empty($usuario) || empty($email) || empty($contraseña)){
     die("Todos los campos son obligatorios.");
 }
 
 // Validar nombre (solo letras y espacios)
-if(!preg_match("/^[A-Za-z\s]+$/", $nombre)){
+if(!preg_match("/^[A-Za-z\s]+$/", $usuario)){
     die("El nombre solo debe contener letras y espacios.");
 }
 
@@ -22,25 +21,19 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
     die("Ingresa un correo electrónico válido.");
 }
 
-// Validar teléfono (9-10 dígitos)
-if(!preg_match("/^\d{8,10}$/", $telefono)){
-    die("El número de teléfono debe tener entre 9 y 10 dígitos.");
-}
-
 $crud = new Crud();
 
 $datos = array(
-    "nombre" => $nombre,
+    "usuario" => $usuario,
     "email" => $email,
-    "telefono" => $telefono,
-    "direccion" => $direccion
+    "contraseña" => $contraseña
 );
 
 try{
-    $respuesta = $crud->save($datos);
+    $respuesta = $crud->saveUser($datos);
 
     if ($respuesta->isAcknowledged()){
-        header("Location: ../views/form-clientes.php?info=success-agregar");
+        header("Location: ../index.php");
         exit();
     } else {
         die("Error al guardar el registro.");

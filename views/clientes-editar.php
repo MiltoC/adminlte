@@ -30,30 +30,34 @@ if (isset($_GET['id'])) {
                         <p class="card-text-1">Actualice los datos del cliente.</p>
                     </div>
                     <div class="card-body-1">
-                    <form id="edit-form" action="../controller/clientes-actualizar.php" method="POST">
+                        <form id="edit-form" action="../controller/clientes-actualizar.php" method="POST">
                             <input type="hidden" name="id" value="<?php echo $cliente->_id; ?>">
+
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $cliente->nombre; ?>" required>
+                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $cliente->nombre; ?>" required pattern="[a-zA-Z\s]+" title="Solo se permiten letras">
                             </div>
+
                             <div class="mb-3">
-                                <label for="apellido" class="form-label">Email</label>
-                                <input type="text" class="form-control" id="email" name="email" value="<?php echo $cliente->email; ?>" required>
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $cliente->email; ?>" required>
                             </div>
+
                             <div class="mb-3">
-                                <label for="edad" class="form-label">Telefono</label>
-                                <input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo $cliente->telefono; ?>" required>
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="tel" class="form-control" id="telefono" name="telefono" value="<?php echo $cliente->telefono; ?>" required pattern="[0-9]{8}" title="El teléfono debe tener 10 dígitos">
                             </div>
+
                             <div class="mb-3">
-                                <label for="cargo" class="form-label">Direccion</label>
+                                <label for="direccion" class="form-label">Dirección</label>
                                 <input type="text" class="form-control" id="direccion" name="direccion" value="<?php echo $cliente->direccion; ?>" required>
                             </div>
-                            
+
                             <div class="d-flex justify-content-between mt-4">
                                 <a href="../views/form-clientes.php" class="btn btn-danger-1">
                                     Cancelar&nbsp&nbsp<i class="fas fa-times"></i>
                                 </a>
-                                <button type="submit" class="btn btn-dark" >Actualizar</button>
+                                <button type="submit" class="btn btn-dark">Actualizar</button>
                             </div>
                         </form>
                     </div>
@@ -63,60 +67,10 @@ if (isset($_GET['id'])) {
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
-            <script>
 
-            function validarSoloTexto(valor) {
-                const regex = /^[a-zA-Z\s]+$/;
-                return regex.test(valor);
-            }
 
-            document.getElementById('actualizar-btn').addEventListener('click', function() {
-                // Validar que los campos no estén vacíos
-                const nombre = document.getElementById('nombre').value.trim();
-                const apellido = document.getElementById('apellido').value.trim();
-                const edad = document.getElementById('edad').value.trim();
-                const cargo = document.getElementById('cargo').value.trim();
-
-                if (!nombre || !apellido || !edad || !cargo) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Todos los campos son obligatorios.',
-                    });
-                    return;
-                }
-
-                if (!validarSoloTexto(nombre) || !validarSoloTexto(apellido) || !validarSoloTexto(cargo)) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Los campos de nombre, apellido y cargo no deben contener números.',
-                    });
-                    return;
-                }
-
-                Swal.fire({
-                    title: '¿Estás seguro?',
-                    text: "Los cambios serán guardados",
-                    icon: 'question',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Sí, actualizar',
-                    cancelButtonText: 'Cancelar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire(
-                            'Actualizado',
-                            'El empleado ha sido actualizado correctamente.',
-                            'success'
-                        ).then(() => {
-                            document.getElementById('edit-form').submit();
-                        });
-                    }
-                });
-            });
-            </script>
+                
+            
         </body>
         </html>
         <?php

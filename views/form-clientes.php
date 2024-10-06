@@ -165,8 +165,7 @@ $datos = $crud->fetchData();
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer" style="background-color: black">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
+    <strong><a href="/adminlte/index.php">Cerrar sesion</a>.</strong>
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.0.0
     </div>
@@ -178,6 +177,31 @@ $datos = $crud->fetchData();
   </aside>
   <!-- /.control-sidebar -->
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
+
+<script>
+        // Obtener los parámetros de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const info = urlParams.get('info');
+
+        // Mostrar la alerta correspondiente
+        if (info === 'success-agregar') {
+            Swal.fire({
+                icon: 'info',
+                title: 'Información',
+                text: 'Resgistro creado correctamente.'
+            });
+        }
+
+        if (info === 'success-actualizar') {
+          Swal.fire({
+            icon: 'info',
+            title: 'Información',
+            text: 'Resgistro actualizado correctamente.'
+          });
+        }
+    </script>
 
 <!-- ./wrapper -->
 <!-- jQuery -->

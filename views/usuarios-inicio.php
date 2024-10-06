@@ -60,25 +60,32 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item mb-1">
-            <h1>Inicie sesión</h1>
-            <form id="sesion-form" action="/adminlte/controller/usuarios-verificar.php" method="POST">
-                        <div class="mb-3">
-                            <label for="usuario" class="form-label">Usuario</label>
-                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su usuario" required pattern="[a-zA-Z0-9]+" title="Solo se permiten letras y números">
-                        </div>
-                        <div class="mb-3">
-                            <label for="contraseña" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="Ingrese su contraseña" required minlength="6" title="La contraseña debe tener al menos 6 caracteres">
-                        </div>
-                        <div class="d-flex justify-content-between mt-4">
-                            <a href="/adminlte/views/usuarios-inicio.php" class="btn btn-dark">
-                                Registrarse
-                            </a>
-                            <button type="submit" class="btn btn-dark">
-                                Acceder
-                            </button>
-                        </div>
-                    </form>
+            <h1>Registrarse</h1>
+            <form id="resgistrarse-form" action="../controller/usuarios-agregar.php" method="POST">
+                <div class="mb-3">
+                    <label for="usuario" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su usuario" required pattern="[a-zA-Z0-9]+" title="Solo se permiten letras y números">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="contraseña" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="Ingrese su contraseña" required minlength="6" title="La contraseña debe tener al menos 6 caracteres">
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="../index.php" class="btn btn-dark">
+                        Cancelar
+                    </a>
+                    <button type="submit" class="btn btn-dark">
+                        Registrarse
+                    </button>
+                </div>
+            </form>
           </li>
         </ul>
       </nav>
@@ -118,22 +125,6 @@
   </aside>
   <!-- /.control-sidebar -->
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
-<script>
-        // Obtener los parámetros de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const error = urlParams.get('error');
-
-        // Mostrar la alerta correspondiente
-        if (error === 'usuario_no_registrado') {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'El usuario no está registrado.'
-            });
-        }
-    </script>
-
 <!-- ./wrapper -->
 <!-- jQuery -->
 <script src="/adminlte/vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
@@ -169,6 +160,7 @@
 <script src="/adminlte/vendor/almasaeed2010/adminlte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/adminlte/vendor/almasaeed2010/adminlte/dist/js/demo.js"></script>
-
+<script src="/adminlte/js/validaciones.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
 </body>
 </html>
