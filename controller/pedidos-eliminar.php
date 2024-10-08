@@ -7,10 +7,10 @@ if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
     try {
-        $respuesta = $crud->deleteClient($id);
+        $respuesta = $crud->deletePedidos($id);
 
         if ($respuesta->getDeletedCount() > 0) {
-            header("Location: ../views/form-clientes.php");
+            header("Location: ../views/form-pedidos.php");
             exit();
         } else {
             echo "Error al eliminar el registro.";

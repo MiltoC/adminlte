@@ -70,6 +70,16 @@
 #contenido h3 {
     margin-top: 0;
 }
+
+#contenido2 {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    max-width: 1000px;
+}
+#contenido2 h3 {
+    margin-top: 0;
+}
 .cont2 {
     height: 100px;
     display: flex;
@@ -120,14 +130,46 @@
     padding: 12px;
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid #ced4da;
-    color: #fff;
+    color: #ffffff;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .form-control:focus,
 .form-select:focus {
     border-color: #80bdff;
-    color: #fff;
+    color: #ffffff;
+    box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5); 
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#categoria:focus,
+.form-select:focus {
+    border-color: #80bdff;
+    color: #000000;
+    box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5); 
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#cliente:focus,
+.form-select:focus {
+    border-color: #80bdff;
+    color: #000000;
+    box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5); 
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#empleado:focus,
+.form-select:focus {
+    border-color: #80bdff;
+    color: #000000;
+    box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5); 
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#producto:focus,
+.form-select:focus {
+    border-color: #80bdff;
+    color: #000000;
     box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5); 
     background-color: rgba(255, 255, 255, 0.2);
 }
@@ -159,6 +201,28 @@
     background-color: #004494;
 }
 
+.btn-register {
+    background-color: #ff6f00;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    color: #fff;
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2), 0 3px 8px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-register:hover {
+    background-color: #b34200;
+    transform: translateY(-2px); 
+}
+
+.btn-register:active {
+    transform: translateY(0); 
+    background-color: #944300;
+}
+
 .btn-danger-1 {
     background-color: #ff0000;
     border: none;
@@ -179,4 +243,28 @@
 .btn-danger-1:active {
     transform: translateY(0); 
     background-color: #940000;
+}
+
+input[type="file"] {
+    display: none; /* Oculta el input original */
+}
+
+.custom-file-upload {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.custom-file-upload:hover {
+    background-color: #0056b3;
+}
+
+#file-name {
+    margin-left: 10px;
+    font-style: italic;
 }

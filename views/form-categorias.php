@@ -3,7 +3,7 @@
 require_once "../connection/conexion.php";
 require_once "../operation/crud.php";
 $crud = new crud();
-$datos = $crud->fetchClient();
+$datos = $crud->fetchCategory();
 
 ?>
 
@@ -82,7 +82,7 @@ $datos = $crud->fetchClient();
                 </button>
             </a>
           </li>
-          <li class="nav-item mb-1">
+            <li class="nav-item mb-1">
                 <a href="/adminlte/views/form-categorias.php">
                     <button class="menu-btn" id="btn-categorias">
                     <i class="fa-solid fa-table-list"></i> Categorias
@@ -97,7 +97,7 @@ $datos = $crud->fetchClient();
             </a>
           </li>
           <li class="nav-item">
-            <a href="/adminlte/views/form-pedidos.php">
+            <a href="/adminlte/views/form-empleados.php">
                 <button class="menu-btn" id="btn-pedidos" >
                 <i class="fa-solid fa-cart-shopping"></i> Pedidos
                 </button>
@@ -120,13 +120,13 @@ $datos = $crud->fetchClient();
     <section class="content">
       
         <div class="text-center card-1">
-            <h1>Clientes</h1>
+            <h1>Categorias</h1>
         </div>
     <div class="card mt-3">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
-                <h2>Lista clientes</h2>
-                <a href="../views/clientes-crear.php" class="btn btn-primary">
+                <h2>Lista categorias</h2>
+                <a href="../views/categorias-crear.php" class="btn btn-primary">
                     Agregar&nbsp&nbsp<i class="fas fa-plus"></i>
                 </a>
             </div>
@@ -135,9 +135,7 @@ $datos = $crud->fetchClient();
                     <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Telefono</th>
-                            <th>Direccion</th>
+                            <th>Descripción</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
                         </tr>
@@ -148,11 +146,9 @@ $datos = $crud->fetchClient();
                         ?>
                             <tr>
                                 <td><?php echo $dato->nombre?></td>
-                                <td><?php echo $dato->email?></td>
-                                <td><?php echo $dato->telefono?></td>
-                                <td><?php echo $dato->direccion?></td>
+                                <td><?php echo $dato->descripcion?></td>
                                 <td class="text-center">
-                                    <form action="../views/clientes-editar.php" method="get">
+                                    <form action="../views/categorias-editar.php" method="get">
                                         <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
                                         <button type="submit" class="btn btn-warning btn-sm">
                                             Editar&nbsp&nbsp<i class="fas fa-edit"></i>
@@ -160,7 +156,7 @@ $datos = $crud->fetchClient();
                                     </form>
                                 </td>
                                 <td class="text-center">
-                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="../controller/clientes-eliminar.php" method="post">
+                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="../controller/categorias-eliminar.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
                                         <button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminacion('<?php echo $dato->_id; ?>')">
                                             Eliminar&nbsp&nbsp<i class="fas fa-trash"></i>

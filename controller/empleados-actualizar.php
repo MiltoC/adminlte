@@ -7,12 +7,12 @@ if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
     $nombre = trim($_POST['nombre']);
+    $dui = trim($_POST['dui']);
+    $cargo = trim($_POST['cargo']);
     $email = trim($_POST['email']);
-    $telefono = trim($_POST['telefono']);
-    $direccion = trim($_POST['direccion']);
 
     // Validar campos vacíos
-    if (empty($nombre) || empty($email) || empty($telefono) || empty($direccion)) {
+    if (empty($nombre) || empty($dui) || empty($cargo) || empty($email)) {
         die('Todos los campos son requeridos.');
     }
 
@@ -21,28 +21,33 @@ if (isset($_POST['id'])) {
         die('El nombre solo debe contener letras.');
     }
 
+    // Validar que el cargo solo contenga letras
+    if (!preg_match("/^[a-zA-Z\s]+$/", $cargo)) {
+        die('El nombre solo debe contener letras.');
+    }
+
     // Validar formato de email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die('El formato del correo electrónico es inválido.');
     }
 
-    // Validar formato de teléfono (número de 10 dígitos)
-    if (!preg_match("/^\d{8,10}$/", $telefono)) {
-        die('El número de teléfono debe contener 10 dígitos.');
+    // Validar que el DUI cumpla con el formato salvadoreño (00000000-0)
+    if (!preg_match("/^\d{8}-\d{1}$/", $dui)) {
+        die("Ingresa un DUI válido en el formato 00000000-0.");
     }
 
     $datos = [
         "nombre" => $nombre,
-        "email" => $email,
-        "telefono" => $telefono,
-        "direccion" => $direccion
+        "dui" => $dui,
+        "cargo" => $cargo,
+        "email" => $email
     ];
 
     try {
-        $respuesta = $crud->updateClient($id, $datos);
+        $respuesta = $crud->updateEmployee($id, $datos);
 
         if ($respuesta->getModifiedCount() > 0) {
-            header("Location: ../views/form-clientes.php?info=success-actualizar");
+            header("Location: ../views/form-empleados.php?info=success-actualizar");
             exit();
         } else {
             echo "No se realizaron cambios.";

@@ -6,9 +6,9 @@ if (isset($_GET['id'])) {
     $crud = new Crud();
     $id = $_GET['id'];
 
-    $cliente = $crud->fetchDataByIdClient($id);
+    $empleado = $crud->fetchDataByIdEmployee($id);
 
-    if ($cliente) {
+    if ($empleado) {
         ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -30,31 +30,34 @@ if (isset($_GET['id'])) {
                         <p class="card-text-1">Actualice los datos del cliente.</p>
                     </div>
                     <div class="card-body-1">
-                        <form id="edit-form" action="../controller/clientes-actualizar.php" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $cliente->_id; ?>">
+                        <form id="edit-form-empleados" action="../controller/empleados-actualizar.php" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $empleado->_id; ?>">
 
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $cliente->nombre; ?>" required pattern="[a-zA-Z\s]+" title="Solo se permiten letras">
+                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $empleado->nombre; ?>" required pattern="[a-zA-Z\s]+" title="Solo se permiten letras">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="dui" class="form-label">DUI</label>
+                                <input type="text" class="form-control" id="dui" name="dui"
+                                    value="<?php echo $empleado->dui; ?>" 
+                                    pattern="\d{8}-\d{1}" required 
+                                    title="Debe ingresar un DUI válido en formato 00000000-0">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="cargo" class="form-label">Cargo</label>
+                                <input type="text" class="form-control" id="cargo" name="cargo" value="<?php echo $empleado->cargo; ?>" required pattern="[a-zA-Z\s]+" title="Solo se permiten letras">
                             </div>
 
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $cliente->email; ?>" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="telefono" class="form-label">Teléfono</label>
-                                <input type="tel" class="form-control" id="telefono" name="telefono" value="<?php echo $cliente->telefono; ?>" required pattern="[0-9]{8}" title="El teléfono debe tener 10 dígitos">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="direccion" class="form-label">Dirección</label>
-                                <input type="text" class="form-control" id="direccion" name="direccion" value="<?php echo $cliente->direccion; ?>" required>
+                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $empleado->email; ?>" required>
                             </div>
 
                             <div class="d-flex justify-content-between mt-4">
-                                <a href="../views/form-clientes.php" class="btn btn-danger-1">
+                                <a href="../views/form-empleados.php" class="btn btn-danger-1">
                                     Cancelar&nbsp&nbsp<i class="fas fa-times"></i>
                                 </a>
                                 <button type="submit" class="btn btn-dark">Actualizar</button>

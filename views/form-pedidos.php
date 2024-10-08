@@ -3,7 +3,7 @@
 require_once "../connection/conexion.php";
 require_once "../operation/crud.php";
 $crud = new crud();
-$datos = $crud->fetchClient();
+$datos = $crud->fetchPedidos();
 
 ?>
 
@@ -89,7 +89,7 @@ $datos = $crud->fetchClient();
                     </button>
                 </a>
             </li>
-            <li class="nav-item mb-1">
+          <li class="nav-item mb-1">
             <a href="/adminlte/views/form-productos.php">
               <button class="menu-btn" id="btn-productos">
                 <i class="fa-solid fa-box"></i> Productos
@@ -120,13 +120,13 @@ $datos = $crud->fetchClient();
     <section class="content">
       
         <div class="text-center card-1">
-            <h1>Clientes</h1>
+            <h1>Pedidos</h1>
         </div>
     <div class="card mt-3">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
-                <h2>Lista clientes</h2>
-                <a href="../views/clientes-crear.php" class="btn btn-primary">
+                <h2>Lista Pedidos</h2>
+                <a href="../views/pedidos-crear.php" class="btn btn-primary">
                     Agregar&nbsp&nbsp<i class="fas fa-plus"></i>
                 </a>
             </div>
@@ -134,10 +134,11 @@ $datos = $crud->fetchClient();
                 <table id="dataTable" class="table table-sm table-hover table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Telefono</th>
-                            <th>Direccion</th>
+                            <th>Cliente</th>
+                            <th>Empleado</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Fecha</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
                         </tr>
@@ -147,12 +148,13 @@ $datos = $crud->fetchClient();
                             foreach($datos as $dato){
                         ?>
                             <tr>
-                                <td><?php echo $dato->nombre?></td>
-                                <td><?php echo $dato->email?></td>
-                                <td><?php echo $dato->telefono?></td>
-                                <td><?php echo $dato->direccion?></td>
+                                <td><?php echo $dato->cliente?></td>
+                                <td><?php echo $dato->empleado?></td>
+                                <td><?php echo $dato->producto?></td>
+                                <td><?php echo $dato->cantidad?></td>
+                                <td><?php echo $dato->fecha?></td>
                                 <td class="text-center">
-                                    <form action="../views/clientes-editar.php" method="get">
+                                    <form action="../views/pedidos-editar.php" method="get">
                                         <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
                                         <button type="submit" class="btn btn-warning btn-sm">
                                             Editar&nbsp&nbsp<i class="fas fa-edit"></i>
@@ -160,7 +162,7 @@ $datos = $crud->fetchClient();
                                     </form>
                                 </td>
                                 <td class="text-center">
-                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="../controller/clientes-eliminar.php" method="post">
+                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="../controller/pedidos-eliminar.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
                                         <button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminacion('<?php echo $dato->_id; ?>')">
                                             Eliminar&nbsp&nbsp<i class="fas fa-trash"></i>

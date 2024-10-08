@@ -66,6 +66,8 @@ document.getElementById('edit-form').addEventListener('submit', function (event)
 });
 
 
+
+
 document.getElementById('resgistrarse-form').addEventListener('submit', function (event) {
     // Validación de campos vacíos
     const nombre = document.getElementById('usuario').value.trim();
@@ -129,3 +131,169 @@ document.getElementById('sesion-form').addEventListener('submit', function (even
         return;
     }
 });
+
+//todo empleados
+
+document.getElementById('employee-form').addEventListener('submit', function (event) {
+    // Obtener los valores de los campos
+    const nombre = document.getElementById('nombre').value.trim();
+    const dui = document.getElementById('dui').value.trim();
+    const cargo = document.getElementById('cargo').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    // Validación de campos vacíos
+    if (!nombre || !dui || !cargo || !email) {
+        alert('Todos los campos son requeridos.');
+        event.preventDefault();
+        return;
+    }
+
+    // Validación de nombre (solo letras y espacios)
+    const nombreRegex = /^[A-Za-z\s]+$/;
+    if (!nombreRegex.test(nombre)) {
+        alert('El nombre solo debe contener letras y espacios.');
+        event.preventDefault();
+        return;
+    }
+
+    // Validación de DUI (formato 00000000-0)
+    const duiRegex = /^\d{8}-\d{1}$/;
+    if (!duiRegex.test(dui)) {
+        alert('El DUI debe estar en el formato 00000000-0.');
+        event.preventDefault();
+        return;
+    }
+
+    // Validación de cargo (solo letras y espacios)
+    if (!nombreRegex.test(cargo)) {
+        alert('El cargo solo debe contener letras y espacios.');
+        event.preventDefault();
+        return;
+    }
+
+    // Validación de email (formato válido)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('El correo electrónico no tiene un formato válido.');
+        event.preventDefault();
+        return;
+    }
+});
+
+
+document.getElementById('edit-form-empleados').addEventListener('submit', function (event) {
+    // Validación de campos vacíos
+    const nombre = document.getElementById('nombre').value.trim();
+    const dui = document.getElementById('dui').value.trim();
+    const cargo = document.getElementById('cargo').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    // Validación de campos vacíos
+    if (!nombre || !dui || !cargo || !email) {
+        alert('Todos los campos son requeridos.');
+        event.preventDefault();
+        return;
+    }
+
+    // Validación de nombre (solo letras y espacios)
+    const nombreRegex = /^[A-Za-z\s]+$/;
+    if (!nombreRegex.test(nombre)) {
+        alert('El nombre solo debe contener letras y espacios.');
+        event.preventDefault();
+        return;
+    }
+
+    // Validación de DUI (formato 00000000-0)
+    const duiRegex = /^\d{8}-\d{1}$/;
+    if (!duiRegex.test(dui)) {
+        alert('El DUI debe estar en el formato 00000000-0.');
+        event.preventDefault();
+        return;
+    }
+
+    // Validación de cargo (solo letras y espacios)
+    if (!nombreRegex.test(cargo)) {
+        alert('El cargo solo debe contener letras y espacios.');
+        event.preventDefault();
+        return;
+    }
+
+    // Validación de email (formato válido)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('El correo electrónico no tiene un formato válido.');
+        event.preventDefault();
+        return;
+    }
+});
+
+
+
+document.getElementById('category-form').addEventListener('submit', function (event) {
+    // Obtener los valores de los campos
+    const nombre = document.getElementById('nombre').value.trim();
+    const descripcion = document.getElementById('descripcion').value.trim();
+
+    // Validación de campos vacíos
+    if (!nombre || !descripcion) {
+        alert('Todos los campos son requeridos.');
+        event.preventDefault();
+        return;
+    }
+
+    // Validación de nombre (solo letras y espacios)
+    const nombreRegex = /^[A-Za-z\s]+$/;
+    if (!nombreRegex.test(nombre)) {
+        alert('El nombre solo debe contener letras y espacios.');
+        event.preventDefault();
+        return;
+    }
+});
+
+
+document.getElementById('edit-form-category').addEventListener('submit', function (event) {
+    // Obtener los valores de los campos
+    const nombre = document.getElementById('nombre').value.trim();
+    const descripcion = document.getElementById('descripcion').value.trim();
+
+    // Validación de campos vacíos
+    if (!nombre || !descripcion) {
+        alert('Todos los campos son requeridos.');
+        event.preventDefault();
+        return;
+    }
+
+    // Validación de nombre (solo letras y espacios)
+    const nombreRegex = /^[A-Za-z\s]+$/;
+    if (!nombreRegex.test(nombre)) {
+        alert('El nombre solo debe contener letras y espacios.');
+        event.preventDefault();
+        return;
+    }
+});
+
+function validarFormulario() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const descripcion = document.getElementById('descripcion').value.trim();
+    const precio = document.getElementById('precio').value.trim();
+    const categoria = document.getElementById('categoria').value.trim();
+    const imagen = document.getElementById('imagen').value.trim();
+
+    // Validación de campos vacíos
+    if (!nombre || !descripcion || !precio || !categoria || !imagen) {
+        alert('Todos los campos son requeridos.');
+        return false;
+    }
+
+    // Validación de nombre solo con letras
+    const nombreRegex = /^[A-Za-z\s]+$/;
+    if (!nombreRegex.test(nombre)) {
+        alert('El nombre del producto solo debe contener letras y espacios.');
+        return false;
+    }
+
+    return true;
+}
+
+
+

@@ -29,11 +29,12 @@
   <link rel="stylesheet" href="/adminlte/vendor/almasaeed2010/adminlte/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <link href="/adminlte/css/styles.css" rel="stylesheet">
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.css">
+    <link href="/adminlte/css/styles.css" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed" >
 <div class="wrapper">
@@ -44,9 +45,9 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4" id="menu-lateral">
     <!-- Brand Logo -->
     <a href="/adminlte/index.php" class="brand-link">
-      <img src="/adminlte/vendor/almasaeed2010/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="/adminlte/img/Logo_CoffeeTown.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Cafetería</span>
+      <span class="brand-text font-weight-light">CoffeTown</span>
     </a>
 
     <!-- Sidebar -->
@@ -67,14 +68,25 @@
                 </a>
           </li>
           <li class="nav-item mb-1">
-            <button class="menu-btn" id="btn-empleados">
-              <i class="fa-solid fa-user-tie"></i> Empleados
-            </button>
+            <a href="/adminlte/views/form-empleados.php">
+                <button class="menu-btn" id="btn-empleados">
+                <i class="fa-solid fa-user-tie"></i> Empleados
+                </button>
+            </a>
           </li>
           <li class="nav-item mb-1">
-            <button class="menu-btn" id="btn-productos">
-              <i class="fa-solid fa-box"></i> Productos
-            </button>
+                <a href="/adminlte/views/form-categorias.php">
+                    <button class="menu-btn" id="btn-categorias">
+                    <i class="fa-solid fa-table-list"></i> Categorias
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item mb-1">
+            <a href="/adminlte/views/form-productos.php">
+              <button class="menu-btn" id="btn-productos">
+                <i class="fa-solid fa-box"></i> Productos
+              </button>
+            </a>
           </li>
           <li class="nav-item">
             <button class="menu-btn" id="btn-pedidos" >

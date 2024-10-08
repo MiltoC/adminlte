@@ -6,9 +6,9 @@ if (isset($_GET['id'])) {
     $crud = new Crud();
     $id = $_GET['id'];
 
-    $cliente = $crud->fetchDataByIdClient($id);
+    $categoria = $crud->fetchDataByIdCategory($id);
 
-    if ($cliente) {
+    if ($categoria) {
         ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -26,35 +26,25 @@ if (isset($_GET['id'])) {
                 <div id="contenido">
                     <div class="card-1">
                     <div class="card-header-1">
-                        <h5 class="card-title-1">Editar Cliente</h5>
-                        <p class="card-text-1">Actualice los datos del cliente.</p>
+                        <h5 class="card-title-1">Editar Categoría</h5>
+                        <p class="card-text-1">Actualice los datos de la categoría.</p>
                     </div>
                     <div class="card-body-1">
-                        <form id="edit-form" action="../controller/clientes-actualizar.php" method="POST">
-                            <input type="hidden" name="id" value="<?php echo $cliente->_id; ?>">
+                        <form id="edit-form-category" action="../controller/categorias-actualizar.php" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $categoria->_id; ?>">
 
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $cliente->nombre; ?>" required pattern="[a-zA-Z\s]+" title="Solo se permiten letras">
+                                <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $categoria->nombre; ?>" required pattern="[a-zA-Z\s]+" title="Solo se permiten letras">
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $cliente->email; ?>" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="telefono" class="form-label">Teléfono</label>
-                                <input type="tel" class="form-control" id="telefono" name="telefono" value="<?php echo $cliente->telefono; ?>" required pattern="[0-9]{8}" title="El teléfono debe tener 10 dígitos">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="direccion" class="form-label">Dirección</label>
-                                <input type="text" class="form-control" id="direccion" name="direccion" value="<?php echo $cliente->direccion; ?>" required>
+                                <label for="descripcion" class="form-label">Descripción</label>
+                                <input type="text" class="form-control" id="descripcion" name="descripcion" value="<?php echo $categoria->descripcion; ?>" required>
                             </div>
 
                             <div class="d-flex justify-content-between mt-4">
-                                <a href="../views/form-clientes.php" class="btn btn-danger-1">
+                                <a href="../views/form-categorias.php" class="btn btn-danger-1">
                                     Cancelar&nbsp&nbsp<i class="fas fa-times"></i>
                                 </a>
                                 <button type="submit" class="btn btn-dark">Actualizar</button>
