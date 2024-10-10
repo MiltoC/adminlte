@@ -68,6 +68,13 @@ $datos = $crud->fetchEmploye();
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <li class="nav-item mb-1">
+                <a href="/adminlte/views/form-usuarios.php">
+                  <button class="menu-btn" id="btn-clientes">
+                  <i class="fa-solid fa-user-gear"></i> Usuarios
+                  </button>
+                </a>
+          </li>
           <li class="nav-item mb-1">
                 <a href="/adminlte/views/form-clientes.php">
                   <button class="menu-btn" id="btn-clientes">
@@ -122,7 +129,7 @@ $datos = $crud->fetchEmploye();
         <div class="text-center card-1">
             <h1>Empleados</h1>
         </div>
-    <div class="card mt-3">
+    <div class="card-1 mt-3">
         <div class="card-body">
             <div class="d-flex justify-content-between mb-3">
                 <h2>Lista Empleados</h2>

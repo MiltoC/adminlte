@@ -3,7 +3,7 @@
 require_once "../connection/conexion.php";
 require_once "../operation/crud.php";
 $crud = new crud();
-$datos = $crud->fetchCategory();
+$datos = $crud->fetchProducts();
 
 ?>
 
@@ -68,46 +68,11 @@ $datos = $crud->fetchCategory();
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item mb-1">
-                <a href="/adminlte/views/form-usuarios.php">
-                  <button class="menu-btn" id="btn-clientes">
-                  <i class="fa-solid fa-user-gear"></i> Usuarios
-                  </button>
-                </a>
-          </li>
           <li class="nav-item mb-1">
-                <a href="/adminlte/views/form-clientes.php">
-                  <button class="menu-btn" id="btn-clientes">
-                    <i class="fa-solid fa-user"></i> Clientes
-                  </button>
-                </a>
-          </li>
-          <li class="nav-item mb-1">
-            <a href="/adminlte/views/form-empleados.php">
-                <button class="menu-btn" id="btn-empleados">
-                <i class="fa-solid fa-user-tie"></i> Empleados
-                </button>
-            </a>
-          </li>
-            <li class="nav-item mb-1">
-                <a href="/adminlte/views/form-categorias.php">
-                    <button class="menu-btn" id="btn-categorias">
-                    <i class="fa-solid fa-table-list"></i> Categorias
-                    </button>
-                </a>
-            </li>
-            <li class="nav-item mb-1">
-            <a href="/adminlte/views/form-productos.php">
+            <a href="/adminlte/views/usuarios-productos.php">
               <button class="menu-btn" id="btn-productos">
                 <i class="fa-solid fa-box"></i> Productos
               </button>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/adminlte/views/form-empleados.php">
-                <button class="menu-btn" id="btn-pedidos" >
-                <i class="fa-solid fa-cart-shopping"></i> Pedidos
-                </button>
             </a>
           </li>
         </ul>
@@ -127,55 +92,24 @@ $datos = $crud->fetchCategory();
     <section class="content">
       
         <div class="text-center card-1">
-            <h1>Categorias</h1>
+            <h1>Productos disponibles</h1>
         </div>
-    <div class="card-1 mt-3">
-        <div class="card-body">
-            <div class="d-flex justify-content-between mb-3">
-                <h2>Lista categorias</h2>
-                <a href="../views/categorias-crear.php" class="btn btn-primary">
-                    Agregar&nbsp&nbsp<i class="fas fa-plus"></i>
-                </a>
-            </div>
-            <div class="table-container">
-                <table id="dataTable" class="table table-sm table-hover table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Editar</th>
-                            <th>Eliminar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            foreach($datos as $dato){
-                        ?>
-                            <tr>
-                                <td><?php echo $dato->nombre?></td>
-                                <td><?php echo $dato->descripcion?></td>
-                                <td class="text-center">
-                                    <form action="../views/categorias-editar.php" method="get">
-                                        <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
-                                        <button type="submit" class="btn btn-warning btn-sm">
-                                            Editar&nbsp&nbsp<i class="fas fa-edit"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                                <td class="text-center">
-                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="../controller/categorias-eliminar.php" method="post">
-                                        <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
-                                        <button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminacion('<?php echo $dato->_id; ?>')">
-                                            Eliminar&nbsp&nbsp<i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
+        <div class="row mt-2">
+            <?php foreach($datos as $dato): ?>
+                <div class="col-md-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="<?php echo $dato->imagen; ?>" class="card-img-top" alt="Imagen del producto" style="height: 150px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $dato->producto; ?></h5>
+                            <p class="card-text"><?php echo $dato->descripcion; ?></p>
+                            <p class="card-text"><strong>Precio: </strong><?php echo $dato->precio; ?></p>
+                            <p class="card-text"><strong>Categoría: </strong><?php echo $dato->categoria; ?></p>
+                            
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
-    </div>
     </section>
     <!-- /.content -->
   </div>

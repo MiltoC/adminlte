@@ -76,7 +76,7 @@ if (isset($_GET['id'])) {
                                             <label for="imagen" class="form-label">Imagen del Producto</label>
                                             <br>
                                             <!-- Mostrar la imagen actual -->
-                                            <img src="<?php echo $producto->imagen; ?>" alt="Imagen del producto" style="width: 100px; height: 100px;">
+                                            <img src="<?php echo $producto->imagen; ?>" alt="Imagen del producto" class="img-thumbnail mb-2" width="80px>
                                             <br><br>
                                             <!-- Input para subir una nueva imagen -->
                                             <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">

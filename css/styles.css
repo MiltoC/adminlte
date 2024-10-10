@@ -166,6 +166,14 @@
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+#rol:focus,
+.form-select:focus {
+    border-color: #80bdff;
+    color: #000000;
+    box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5); 
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
 #producto:focus,
 .form-select:focus {
     border-color: #80bdff;
@@ -267,4 +275,23 @@ input[type="file"] {
 #file-name {
     margin-left: 10px;
     font-style: italic;
+}
+
+
+.table thead th {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+}
+
+.table tbody td{
+    background-color: #3e495a;
+    color: #fff;
+    border: none;
+}
+
+.dataTables_length select{
+    background-color: #3e495a;
+    color: #fff;
+    border: none;
 }

@@ -5,6 +5,7 @@ include "../operation/crud.php";
 $usuario = isset($_POST['usuario']) ? $_POST['usuario'] : null;
 $email = isset($_POST['email']) ? $_POST['email'] : null;
 $contraseña = isset($_POST['contraseña']) ? $_POST['contraseña'] : null;
+$rol = "user";
 
 // Validar que todos los campos estén llenos
 if(empty($usuario) || empty($email) || empty($contraseña)){
@@ -26,14 +27,15 @@ $crud = new Crud();
 $datos = array(
     "usuario" => $usuario,
     "email" => $email,
-    "contraseña" => $contraseña
+    "contraseña" => $contraseña,
+    "rol" => $rol
 );
 
 try{
     $respuesta = $crud->saveUser($datos);
 
     if ($respuesta->isAcknowledged()){
-        header("Location: ../index.php");
+        header("Location: ../index.php?success=registro_exitoso");
         exit();
     } else {
         die("Error al guardar el registro.");

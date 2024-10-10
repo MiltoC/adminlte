@@ -3,7 +3,7 @@
 require_once "../connection/conexion.php";
 require_once "../operation/crud.php";
 $crud = new crud();
-$datos = $crud->fetchCategory();
+$datos = $crud->fetchUser();
 
 ?>
 
@@ -89,7 +89,7 @@ $datos = $crud->fetchCategory();
                 </button>
             </a>
           </li>
-            <li class="nav-item mb-1">
+          <li class="nav-item mb-1">
                 <a href="/adminlte/views/form-categorias.php">
                     <button class="menu-btn" id="btn-categorias">
                     <i class="fa-solid fa-table-list"></i> Categorias
@@ -104,7 +104,7 @@ $datos = $crud->fetchCategory();
             </a>
           </li>
           <li class="nav-item">
-            <a href="/adminlte/views/form-empleados.php">
+            <a href="/adminlte/views/form-pedidos.php">
                 <button class="menu-btn" id="btn-pedidos" >
                 <i class="fa-solid fa-cart-shopping"></i> Pedidos
                 </button>
@@ -127,22 +127,21 @@ $datos = $crud->fetchCategory();
     <section class="content">
       
         <div class="text-center card-1">
-            <h1>Categorias</h1>
+            <h1>Usuarios</h1>
         </div>
     <div class="card-1 mt-3">
         <div class="card-body">
-            <div class="d-flex justify-content-between mb-3">
-                <h2>Lista categorias</h2>
-                <a href="../views/categorias-crear.php" class="btn btn-primary">
-                    Agregar&nbsp&nbsp<i class="fas fa-plus"></i>
-                </a>
+            <div class="d-flex justify-content-between mb-3 card-title-1">
+                <h2>Lista usuarios</h2>
             </div>
             <div class="table-container">
                 <table id="dataTable" class="table table-sm table-hover table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
+                            <th>Usuario</th>
+                            <th>Email</th>
+                            <th>Contraseña</th>
+                            <th>Rol</th>
                             <th>Editar</th>
                             <th>Eliminar</th>
                         </tr>
@@ -152,10 +151,12 @@ $datos = $crud->fetchCategory();
                             foreach($datos as $dato){
                         ?>
                             <tr>
-                                <td><?php echo $dato->nombre?></td>
-                                <td><?php echo $dato->descripcion?></td>
+                                <td><?php echo $dato->usuario?></td>
+                                <td><?php echo $dato->email?></td>
+                                <td><?php echo $dato->contraseña?></td>
+                                <td><?php echo $dato->rol?></td>
                                 <td class="text-center">
-                                    <form action="../views/categorias-editar.php" method="get">
+                                    <form action="../views/usuarios-editar.php" method="get">
                                         <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
                                         <button type="submit" class="btn btn-warning btn-sm">
                                             Editar&nbsp&nbsp<i class="fas fa-edit"></i>
@@ -163,7 +164,7 @@ $datos = $crud->fetchCategory();
                                     </form>
                                 </td>
                                 <td class="text-center">
-                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="../controller/categorias-eliminar.php" method="post">
+                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="../controller/usuarios-eliminar.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
                                         <button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminacion('<?php echo $dato->_id; ?>')">
                                             Eliminar&nbsp&nbsp<i class="fas fa-trash"></i>

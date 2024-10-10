@@ -60,6 +60,13 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+              <li class="nav-item mb-1">
+                <a href="/adminlte/views/form-usuarios.php">
+                  <button class="menu-btn" id="btn-clientes">
+                  <i class="fa-solid fa-user-gear"></i> Usuarios
+                  </button>
+                </a>
+          </li>
           <li class="nav-item mb-1">
                 <a href="/adminlte/views/form-clientes.php">
                   <button class="menu-btn" id="btn-clientes">
@@ -89,9 +96,11 @@
             </a>
           </li>
           <li class="nav-item">
-            <button class="menu-btn" id="btn-pedidos" >
-              <i class="fa-solid fa-cart-shopping"></i> Pedidos
-            </button>
+            <a href="/adminlte/views/form-pedidos.php">
+                <button class="menu-btn" id="btn-pedidos" >
+                <i class="fa-solid fa-cart-shopping"></i> Pedidos
+                </button>
+            </a>
           </li>
         </ul>
       </nav>
@@ -132,6 +141,20 @@
 </div>
 <!-- ./wrapper -->
 <!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
+<script>
+        // Obtener los parámetros de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const info = urlParams.get('info');
+
+        if (info === 'success') {
+          Swal.fire({
+            icon: 'info',
+            title: 'Información',
+            text: 'Bienvenido.'
+          });
+        }
+    </script>
 <script src="/adminlte/vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="/adminlte/vendor/almasaeed2010/adminlte/plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -165,6 +188,5 @@
 <script src="/adminlte/vendor/almasaeed2010/adminlte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/adminlte/vendor/almasaeed2010/adminlte/dist/js/demo.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
 </body>
 </html>

@@ -15,12 +15,22 @@ if(empty($usuario) || empty($contraseña)){
 $crud = new Crud();
 
 try {
-    // Llamar a la función para verificar si el usuario existe
+    // Llamar a la función para verificar si el usuario existe y obtener los datos del usuario
     $usuarioValido = $crud->verificarUsuario($usuario, $contraseña);
 
     if ($usuarioValido) {
-        // Usuario autenticado correctamente
-        header("Location: ../views/inicio.php");
+        // Usuario autenticado correctamente, revisar su rol
+        $rol = $usuarioValido->rol;
+
+        // Redirigir dependiendo del rol
+        if ($rol === 'admin') {
+            header("Location: ../views/inicio.php?info=success");
+        } else if ($rol === 'user') {
+            header("Location: ../views/inicio-usuarios.php?info=success");
+        } else {
+            // Si el rol no es válido, redirigir a una página de error o inicio
+            header("Location: ../index.php?error=rol_no_valido");
+        }
         exit();
     } else {
         // Usuario no registrado

@@ -8,19 +8,17 @@ class Crud extends DatabaseConexion {
         try {
             $conexion = parent::Connect();
             $coleccion = $conexion->usuarios;
-
+    
             // Buscar usuario y contraseña en la colección
             $usuarioEncontrado = $coleccion->findOne([
                 'usuario' => $usuario,
                 'contraseña' => $contraseña
             ]);
-
-            // Retornar si el usuario fue encontrado o no
-            return $usuarioEncontrado ? true : false;
+    
+            // Si el usuario fue encontrado, retornar sus datos (incluido el rol)
+            return $usuarioEncontrado;
         } catch (\Throwable $e) {
             return "Error: " . $e->getMessage();
-        } catch (Exception $th) {
-            return "Error: " . $th->getMessage();
         }
     }
 
@@ -77,6 +75,18 @@ class Crud extends DatabaseConexion {
         try{
             $connection = $this->connect();
             $collection = $connection->pedidos;
+            $documents = $collection->find();
+            return $documents;
+        }
+        catch(\Throwable $e){
+            return $e->getMessage();
+        }
+    }
+
+    public function fetchUser(){
+        try{
+            $connection = $this->connect();
+            $collection = $connection->usuarios;
             $documents = $collection->find();
             return $documents;
         }
@@ -256,6 +266,21 @@ class Crud extends DatabaseConexion {
         }
     }
 
+    public function updateUser($id, $datos) {
+        try{
+            $conexion = parent::Connect();
+            $coleccion = $conexion->usuarios;
+            $respuesta = $coleccion->updateOne(
+                ['_id' => new MongoDB\BSON\ObjectId($id)],
+                ['$set' => $datos]
+            );
+            return $respuesta;
+        }
+        catch(\Throwable $e){
+            return "Error: " . $e->getMessage();
+        }
+    }
+
     // Método para obtener un solo documento por ID
     public function fetchDataByIdClient($id) {
         try{
@@ -317,6 +342,18 @@ class Crud extends DatabaseConexion {
         }
     }
 
+    public function fetchDataByIdUser($id) {
+        try{
+            $conexion = parent::Connect();
+            $coleccion = $conexion->usuarios;
+            $categoria = $coleccion->findOne(['_id' => new MongoDB\BSON\ObjectId($id)]);
+            return $categoria;
+        }
+        catch(\Throwable $e){
+            return "Error: " . $e->getMessage();
+        }
+    }
+
     // Método para eliminar un documento por ID
     public function deleteClient($id) {
         try{
@@ -370,6 +407,19 @@ class Crud extends DatabaseConexion {
         try{
             $conexion = parent::Connect();
             $coleccion = $conexion->pedidos;
+            $respuesta = $coleccion->deleteOne(['_id' => new MongoDB\BSON\ObjectId($id)]);
+            return $respuesta;
+        }
+        catch(\Throwable $e){
+            return "Error: " . $e->getMessage();
+        }
+    }
+
+
+    public function deleteUser($id) {
+        try{
+            $conexion = parent::Connect();
+            $coleccion = $conexion->usuarios;
             $respuesta = $coleccion->deleteOne(['_id' => new MongoDB\BSON\ObjectId($id)]);
             return $respuesta;
         }

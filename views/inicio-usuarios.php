@@ -1,12 +1,3 @@
-<?php
-
-require_once "../connection/conexion.php";
-require_once "../operation/crud.php";
-$crud = new crud();
-$datos = $crud->fetchCategory();
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +7,8 @@ $datos = $crud->fetchCategory();
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link href="../css/styles.css" rel="stylesheet">
 
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/adminlte/vendor/almasaeed2010/adminlte/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -38,13 +29,14 @@ $datos = $crud->fetchCategory();
   <link rel="stylesheet" href="/adminlte/vendor/almasaeed2010/adminlte/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.css">
+    <link href="/adminlte/css/styles.css" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed" >
 <div class="wrapper">
 
 
@@ -59,55 +51,18 @@ $datos = $crud->fetchCategory();
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" >
       <!-- Sidebar user panel (optional) -->
       
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-               <li class="nav-item mb-1">
-                <a href="/adminlte/views/form-usuarios.php">
-                  <button class="menu-btn" id="btn-clientes">
-                  <i class="fa-solid fa-user-gear"></i> Usuarios
-                  </button>
-                </a>
-          </li>
-          <li class="nav-item mb-1">
-                <a href="/adminlte/views/form-clientes.php">
-                  <button class="menu-btn" id="btn-clientes">
-                    <i class="fa-solid fa-user"></i> Clientes
-                  </button>
-                </a>
-          </li>
-          <li class="nav-item mb-1">
-            <a href="/adminlte/views/form-empleados.php">
-                <button class="menu-btn" id="btn-empleados">
-                <i class="fa-solid fa-user-tie"></i> Empleados
-                </button>
-            </a>
-          </li>
             <li class="nav-item mb-1">
-                <a href="/adminlte/views/form-categorias.php">
-                    <button class="menu-btn" id="btn-categorias">
-                    <i class="fa-solid fa-table-list"></i> Categorias
-                    </button>
-                </a>
-            </li>
-            <li class="nav-item mb-1">
-            <a href="/adminlte/views/form-productos.php">
+            <a href="/adminlte/views/usuarios-productos.php">
               <button class="menu-btn" id="btn-productos">
                 <i class="fa-solid fa-box"></i> Productos
               </button>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/adminlte/views/form-empleados.php">
-                <button class="menu-btn" id="btn-pedidos" >
-                <i class="fa-solid fa-cart-shopping"></i> Pedidos
-                </button>
             </a>
           </li>
         </ul>
@@ -125,57 +80,11 @@ $datos = $crud->fetchCategory();
 
     <!-- Main content -->
     <section class="content">
-      
-        <div class="text-center card-1">
-            <h1>Categorias</h1>
-        </div>
-    <div class="card-1 mt-3">
-        <div class="card-body">
-            <div class="d-flex justify-content-between mb-3">
-                <h2>Lista categorias</h2>
-                <a href="../views/categorias-crear.php" class="btn btn-primary">
-                    Agregar&nbsp&nbsp<i class="fas fa-plus"></i>
-                </a>
+      <div class="container-fluid" >
+      <div class="card-1 cont2">
+              <h3 style="text-align: center">Bienvenido</h3>
             </div>
-            <div class="table-container">
-                <table id="dataTable" class="table table-sm table-hover table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Editar</th>
-                            <th>Eliminar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            foreach($datos as $dato){
-                        ?>
-                            <tr>
-                                <td><?php echo $dato->nombre?></td>
-                                <td><?php echo $dato->descripcion?></td>
-                                <td class="text-center">
-                                    <form action="../views/categorias-editar.php" method="get">
-                                        <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
-                                        <button type="submit" class="btn btn-warning btn-sm">
-                                            Editar&nbsp&nbsp<i class="fas fa-edit"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                                <td class="text-center">
-                                    <form id="formEliminar_<?php echo $dato->_id; ?>" action="../controller/categorias-eliminar.php" method="post">
-                                        <input type="hidden" name="id" value="<?php echo $dato->_id; ?>">
-                                        <button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminacion('<?php echo $dato->_id; ?>')">
-                                            Eliminar&nbsp&nbsp<i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>
@@ -193,34 +102,22 @@ $datos = $crud->fetchCategory();
   </aside>
   <!-- /.control-sidebar -->
 </div>
-
+<!-- ./wrapper -->
+<!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
-
 <script>
         // Obtener los parámetros de la URL
         const urlParams = new URLSearchParams(window.location.search);
         const info = urlParams.get('info');
 
-        // Mostrar la alerta correspondiente
-        if (info === 'success-agregar') {
-            Swal.fire({
-                icon: 'info',
-                title: 'Información',
-                text: 'Resgistro creado correctamente.'
-            });
-        }
-
-        if (info === 'success-actualizar') {
+        if (info === 'success') {
           Swal.fire({
             icon: 'info',
             title: 'Información',
-            text: 'Resgistro actualizado correctamente.'
+            text: 'Bienvenido.'
           });
         }
     </script>
-
-<!-- ./wrapper -->
-<!-- jQuery -->
 <script src="/adminlte/vendor/almasaeed2010/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="/adminlte/vendor/almasaeed2010/adminlte/plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -254,40 +151,5 @@ $datos = $crud->fetchCategory();
 <script src="/adminlte/vendor/almasaeed2010/adminlte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/adminlte/vendor/almasaeed2010/adminlte/dist/js/demo.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.14.0/sweetalert2.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            "paging": true,
-            "searching": true,
-            "ordering": true
-        });
-    });
-
-    function confirmarEliminacion(id) {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: "No podrás revertir esta acción",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Sí, eliminar',
-            cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Si el usuario confirma, enviar el formulario
-                document.getElementById('formEliminar_' + id).submit();
-            }
-        });
-    }
-    
-    </script>
 </body>
 </html>
-
-

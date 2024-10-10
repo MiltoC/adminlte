@@ -124,6 +124,7 @@
         // Obtener los parámetros de la URL
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');
+        const success = urlParams.get('success');
 
         // Mostrar la alerta correspondiente
         if (error === 'usuario_no_registrado') {
@@ -131,6 +132,14 @@
                 icon: 'error',
                 title: 'Error',
                 text: 'El usuario no está registrado.'
+            });
+        }
+
+        if (success === 'registro_exitoso') {
+            Swal.fire({
+                icon: 'info',
+                title: 'Información',
+                text: 'El usuario se creo correctamente.'
             });
         }
     </script>
